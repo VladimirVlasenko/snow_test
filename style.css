@@ -1,0 +1,714 @@
+
+@font-face {
+	font-family: 'FuturaBookC';
+	src: url('../fonts/futurabookc.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/futurabookc.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/futurabookc.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/futurabookc.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/futurabookc.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/futurabookc.svg#futurabookc') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+html {
+    font-family: "FuturaBookC";
+}
+a {
+    text-decoration: none;
+    border: none;
+}
+/* Начало стилизации попап с выбором города */
+.city_popup {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(110, 110, 110, 0.8);
+    top: 0px;
+    margin: 0 auto;
+    display: none;
+    z-index: 3;
+}
+.city_popup .popup_window {
+    display: block;
+    width: 500px;
+    height: 500px;
+    position: relative;
+    background-color: white;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.city_popup .popup_window .close {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    background: url("./images/popup_close.png") no-repeat center center;
+    transform: scale(0.7);
+}
+.city_popup .popup_window .close:hover {
+    cursor: pointer;
+}
+.city_popup .popup_window .top {
+    font-size: 36px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 35px;
+    margin-bottom: 50px;
+}
+.city_popup .popup_window .middle {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.city_popup .popup_window .middle .item {
+    font-size: 28px;
+    line-height: 200%;
+    font-weight: 700;
+}
+.city_popup .popup_window .middle .item:hover {
+    cursor: pointer;
+}
+
+/* Конец стилизации попапа с выбором города */
+/* Начало стилизации попапа с заказом */
+.order_popup {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(110, 110, 110, 0.8);
+    top: 0px;
+    margin: 0 auto;
+    display: none;
+    z-index: 3;
+}
+.order_popup.active {
+    display: block;
+}
+.order_popup .popup_window {
+    display: block;
+    width: 880px;
+    height: 700px;
+    position: relative;
+    background-color: white;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.order_popup .popup_window .close {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    background: url("./images/popup_close.png") no-repeat center center;
+    transform: scale(0.7);
+}
+.order_popup .popup_window .close:hover {
+    cursor: pointer;
+}
+.order_popup .popup_window .top {
+    font-size: 36px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 35px;
+    margin-bottom: 50px;
+}
+.order_popup .popup_window .top h2 {
+    margin: 0 auto;
+}
+.order_popup .popup_window .top p {
+    font-size: 15px;
+}
+.order_popup .popup_window .form_item {
+    height: 75px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.order_popup .popup_window .agree {
+    height: 35px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+}
+.order_popup .popup_window .form_item label {
+    font-size: 18px;
+}
+.order_popup .popup_window .form_item input {
+    width: 90%;
+    height: 40px;
+    border: none;
+}
+.order_popup .popup_window .form_submit {
+    width: 260px;
+    height: 50px;
+    position: relative;
+    margin: 0 auto;
+}
+.order_popup .popup_window .form_submit:hover {
+    cursor: pointer;
+}
+.order_popup .popup_window .form_submit input {
+    width: 260px;
+    height: 50px;
+    background: transparent;
+    border: none;
+}
+.order_popup .popup_window .form_submit .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 210, 0) ;
+    z-index: -1;
+    transform: skewX(-20deg);
+    box-shadow: 2px 2px rgb(0,0,0);
+}
+
+/* Конец стилизации попапа с заказом */
+header {
+    width: 100%;
+    height: 105px;
+    background: url('./images/header_background.jpg') no-repeat center/cover;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 0;
+}
+
+header .logo {
+    width: 114px;
+    height: 105px;
+    display: block;
+    position: relative;
+    background: url("./images/logo.png") no-repeat center center;
+    top: -3px;
+}
+
+header .menu-items {
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+header .menu-items a {
+    color: white;
+    margin-left: 25px;
+    margin-right: 25px;
+    position: relative;
+    z-index: 2;
+}
+header .menu-items:hover {
+    cursor: pointer;
+}
+header .menu-items a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255, 210, 0);
+    bottom: -3px;
+    left: 0px;
+    border: none;
+}
+header .menu-items a.active {
+    color: black;
+
+    z-index: 2;
+}
+header .menu-items a.active .before {
+    position: absolute;
+    width: 140%;
+    height: 140%;
+    background-color: rgb(255, 210, 0);
+    left: -20%;
+    top: -20%;
+    z-index: -1;
+    transform: skewX(-20deg);
+}
+  
+header .city-order {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+header .city-order .city {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+header .city-order .city:hover {
+    cursor: pointer;
+}
+  
+header .city-order .city img {
+    margin-right: 10px;
+}
+header .city-order .city p.city_name {
+    color: white;
+    text-transform: uppercase;
+    margin-right: 40px;
+    letter-spacing: 1px;
+}
+header .city-order .order {
+    position: relative;
+}
+header .city-order .order:hover {
+    cursor: pointer;
+}
+header .city-order p {
+    position: relative;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 700;
+    
+}
+header .city-order .order .background {
+    width: 140%;
+    height: 90%;
+    position: absolute;
+    left: -20%;
+    top: 5%;
+    background-color: white ;
+    z-index: -1;
+    transform: skewX(-20deg);
+    box-shadow: 2px 2px rgb(255, 210, 0);
+}
+
+
+.part {
+    position: relative;
+    box-sizing: border-box;
+    display: none;
+}
+.part.active {
+    display: block;
+}
+.part .title {
+    display: block;
+    font-size: 58px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    height: 80px;
+    
+}
+/* О компании начало */
+.part.active.about { 
+    width: 100%;
+    display: block;
+    position: relative;
+
+}
+.part.active.about .about_body {
+    width: 85%;
+    margin-left: 15%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 711px;
+    margin-top: 0px;
+    position: relative;
+}
+.part.active.about .about_body .text {
+    width: 720px;
+    position: relative;
+    left: 0;
+    top: 0px;
+    font-size: 24px;
+    white-space: pre-line;
+    display: flex;
+    flex-direction: column;
+    
+}
+.part.active.about .about_body .text .buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.part.active.about .about_body .text .buttons .order_button  {
+    width: 280px;
+    height: 50px;
+    position: relative;
+    white-space: nowrap;
+}
+.part.active.about .about_body .text .buttons .order_button:hover {
+    cursor: pointer;
+}
+.part.active.about .about_body .text .buttons .order_button p {
+    margin: 0 auto;
+    line-height: 50px;
+    text-align: center;
+}
+.part.active.about .about_body .text .buttons .order_button .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 210, 0) ;
+    z-index: -1;
+    transform: skewX(-20deg);
+    box-shadow: 2px 2px rgb(0,0,0);
+}
+.part.active.about .about_body .text .buttons .find_dealer_button  {
+    width: 280px;
+    height: 50px;
+    position: relative;
+    white-space: nowrap;
+}
+.part.active.about .about_body .text .buttons .find_dealer_button:hover {
+    cursor: pointer;
+}
+.part.active.about .about_body .text .buttons .find_dealer_button p {
+    margin: 0 auto;
+    line-height: 50px;
+    text-align: center;
+}
+.part.active.about .about_body .text .buttons .find_dealer_button .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 210, 0) ;
+    z-index: -1;
+    transform: skewX(-20deg);
+    box-shadow: 2px 2px rgb(0,0,0);
+}
+.part.active.about .image {
+    width: 950px;
+    height: 711px;
+    background: url('./images/about_background.png');
+    position: absolute;
+    right: 0;
+    top: 0px;
+    z-index: -1;
+}
+/* О компании конец */
+.part .tabs {
+    width: 800px;
+    height: 150px;
+    transform: skewX(-20deg);
+    margin: 0 auto;
+    margin-top: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+}
+.part .tabs .top_tabs {
+    width: 100%;
+    height: 50px;
+    border: 2px solid rgb(255, 210, 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.part .tabs .top_tabs .top_tab {
+    font-weight: 700;
+    text-align: center;
+    width: 33%;
+    height: 100%;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.part .tabs .top_tabs .top_tab p {
+    line-height: 50px;
+    width: 100%;
+    text-align: center;
+    transform: skewX(20deg);
+}
+
+.part .tabs .top_tabs .top_tab:hover {
+cursor: pointer;
+}
+.part .tabs .top_tabs .top_tab.active {
+    background-color: rgb(255, 210, 0);
+}
+/* Средние табы в каталоге */
+.part .tabs .middle_tabs {
+    width: 100%;
+    height: 50px;
+    border: 2px solid rgb(0,0,0);
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+}
+.part .tabs .middle_tabs .middle_tab {
+    font-weight: 700;
+    text-align: center;
+    width: 15%;
+    height: 100%;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;;
+}
+.part .tabs .middle_tabs .middle_tab p {
+    line-height: 50px;
+    width: 100%;
+    text-align: center;
+    transform: skewX(20deg);
+    color: white;
+}
+
+
+.part .tabs .middle_tabs .middle_tab:hover p {
+cursor: pointer;
+color: rgb(255, 210, 0);
+}
+.part .tabs .middle_tabs .middle_tab.active p {
+    color: rgb(255, 210, 0);
+}
+
+/* Нижние табы в каталоге */
+.part .tabs .bottom_tabs {
+    width: 100%;
+    height: 50px;
+    border: 2px solid rgb(0,0,0);
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+}
+.part .tabs .bottom_tabs .bottom_tab {
+    font-weight: 700;
+    text-align: center;
+    height: 100%;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;;
+}
+.part .tabs .bottom_tabs .bottom_tab p {
+    line-height: 50px;
+    width: 100%;
+    text-align: center;
+    transform: skewX(20deg);
+    color: white;
+}
+
+.part .tabs .bottom_tabs .bottom_tab:hover p {
+cursor: pointer;
+color: rgb(255, 210, 0);
+}
+.part .tabs .bottom_tabs .bottom_tab.active p {
+    color: rgb(255, 210, 0);
+}
+/* Стили для контейнера товаров */
+.part .goods_container {
+    width: 1376px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+.part .goods_container .goods_item {
+    width: 25%;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid rgba(110, 110, 110, 0.4);
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+.part .goods_container .goods_item .name {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+.part .goods_container .goods_item .image {
+    width: 250px;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+}
+.part .goods_container .goods_item .price {
+    font-size: 24px;
+    font-weight: 500px;
+}
+/* Пагинация */
+.part.active .bottom {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+ul.pagination {
+    display: block;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: 30px;
+    height: 40px;
+    text-align: center;
+}
+
+ul.pagination li {display: inline;}
+
+
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: rgba(110, 110, 110, 0.4);
+}
+ul.pagination li a:hover {
+    cursor: pointer;
+}
+ul.pagination li a.active {
+    background-color: rgba(110, 110, 110, 0.8);
+    color: white;
+}
+
+ul.pagination li a:hover:not(.active) {background-color: #ddd;}
+
+.show_more {
+    margin: 0 auto;
+    width: 200px;
+    height: 50px;
+    border: 1px solid rgba(110, 110, 110, 0.8);
+    background-color: rgb(0,0,0);
+    box-shadow: 2px 2px rgba(0,0,0, 0.4);
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 50px;
+    transform: skewX(-20deg);
+}
+.show_more:hover {
+    cursor: pointer;
+    color: yellow;
+    box-shadow: 2px 2px rgb(255, 210, 0);
+
+}
+/* Стили карты */
+.part_map .map_container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.part_map .map_container .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 379px;
+}
+.part_map .map_container .sidebar .top_sidebar {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.part_map .map_container .sidebar .top_sidebar p.city_name {
+    width: 100%;
+    height: 50px;
+    border: 1px solid rgb(255, 210, 0);
+    line-height: 50px;
+    font-size: 24px;
+    padding-left: 30px;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.part_map .map_container .sidebar .top_sidebar p.city_name::before {
+    content: "";
+    position: absolute;
+    background: url('./images/map_icon.png') no-repeat center center;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    left: 0px;
+}
+.part_map .map_container .sidebar .bottom_sidebar {
+    width: 100%;
+    border: 1px solid rgba(110, 110, 110, 0.4);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px 30px;
+    align-items: flex-start;
+    box-sizing: border-box;
+
+}
+.part_map .map_container .sidebar .bottom_sidebar .bottom_sidebar_item {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-content: flex-start;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+.part_map .map_container .sidebar .bottom_sidebar .name {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.part_map .map_container .sidebar .bottom_sidebar .feature {
+    font-size: 18px;
+    line-height: 140%;
+}
+.part_map .map_container .sidebar .bottom_sidebar hr {
+    width: 100%;
+}
+
+.part_map .map_container .map_main {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 100px;
+    box-sizing: border-box;
+}
+.part_map .map_container .map_main .map_item {
+    display: none;
+}
+.part_map .map_container .map_main .map_item.active {
+    display: block;
+}
+
+/* Конец стилей карты */

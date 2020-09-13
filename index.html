@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Снегоходы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Попап выбора города -->
+    <div class="city_popup">
+        <div class="popup_window">
+            <div class="close"></div>
+            <div class="top">Выберите город из списка ниже</div>
+            <div class="middle"></div>
+        </div>
+    </div>
+    <!-- Конец попапа выбора города -->
+    <!-- Начало попапа заказа -->
+    <div class="order_popup">
+        <div class="popup_window">
+            <div class="close"></div>
+            <div class="top">
+                <h2>Оставьте заявку</h2>
+                <p>Наш менеджер свяжется с вами для записи на тест-драйв</p>
+            </div>
+            <form action="#" method="post">
+                <div class="name form_item">
+                    <label for="name">ФИО</label>
+                    <input type='text' placeholder="Введите ФИО" id='name' name='name' required autofocus>
+                </div>
+                <div class="phone form_item">
+                    <label for="phone">Номер телефона</label>
+                    <input type='phone' placeholder="Введите номер телефона" id='phone' name='phone' required>
+                </div>
+                <div class="form_item">
+                    <label for="city form_item">Город</label>
+                    <select name='city' id='city' required>
+                        <option selected>Москва</option>
+                        <option>Санкт-Петербург</option>
+                        <option>Нижний Новгород</option>
+                    </select>
+                </div>
+
+                <div class="form_item">
+                    <label for="dealer">Дилер</label>
+                    <select name='dealer' id='dealer' required>
+                        <option selected>Дилер 1</option>
+                        <option>Дилер 2</option>
+                        <option>Дилер 3</option>
+                    </select>
+                </div>
+
+                <div class="agree">
+                    <input type="checkbox" name="agree" id="agree" required>
+                    <label for="agree">Согласие с политикой конфиденциальности и правилами пользования</label>
+                </div>
+                <div class="form_submit">
+                    <input type='submit' value='ОТПРАВИТЬ'>
+                    <div class="background"></div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!-- Конец попапа заказа -->
+    <header>
+        <div class="logo"></div>
+        <div class="menu-items">
+            <a href="#" class="about headerRef">О компании
+                <div class="before"></div>
+            </a>
+            <a href="#" class="catalog headerRef">Каталог
+                <div class="before"></div>
+            </a>
+            <a href="#" class="diler_search headerRef">Поиск дилера
+                <div class="before"></div>
+            </a>
+        </div>
+        <div class="city-order">
+            <div class="city">
+                <img src="./images/map_icon.png" alt="map_icon">
+                <p class="city_name">Выберите город</p>
+            </div>
+            <div class="order">
+                <p>Оставить заявку</p>
+                <div class="background"></div>
+            </div>
+        </div>
+
+    </header>
+    <!-- Наполнение сайта -->
+    <div class="main">
+        <div class="about part active">
+            <div class="title">О компании</div>
+            <div class="about_body">
+                <div class="text">
+                    Компания BRP является мировым лидером в сфере техники для активного отдыха и спорта, а также
+                    водометных систем. Наш более чем 75-летний опыт основан на инновационных решениях и внимательном
+                    отношении к клиентам. В нашу линейку передовых и уникальных для индустрии товаров входят снегоходы
+                    Ski-Doo и Lynx, гидроциклы Sea-Doo, квадроциклы, мотовездеходы и трициклы Can-Am, лодки Alumacraft,
+                    Manitou и Telwater, водометные системы Evinrude и Rotax, а также двигатели Rotax для картингов,
+                    мотоциклов и малой авиации. Мы предлагаем полную линейку запчастей, аксессуаров и одежды для
+                    максимальной реализации возможностей техники.
+
+                    Ежегодный объем продаж компании, работающей в более чем 120 странах, составляет 5,2 млрд. канадских
+                    долларов, а штат компании насчитывает более 12 500 талантливых и целеустремленных сотрудников.
+                    <div class="buttons">
+                        <div class="order_button">
+                            <p>Оставить заявку</p>
+                            <div class="background"></div>
+                        </div>
+                        <div class="find_dealer_button">
+                            <p>Найти дилера</p>
+                            <div class="background"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="image"></div>
+            </div>
+        </div>
+
+        <div class="catalog_body part">
+            <div class="title">Каталог</div>
+            <div class="tabs">
+                <div class="top_tabs">
+                    <div class="all_brands top_tab active">
+                        <p>ВСЕ БРЕНДЫ</p>
+                    </div>
+                    <div class="lynx top_tab">
+                        <p>LYNX</p>
+                    </div>
+                    <div class="ski_doo top_tab">
+                        <p>SKI-DOO</p>
+                    </div>
+                </div>
+                <div class="middle_tabs">
+                    <div class="all_models middle_tab active category">
+                        <p>Все модели</p>
+                    </div>
+                    <div class="extreme middle_tab category">
+                        <p>Для экстрима</p>
+                    </div>
+                    <div class="sport middle_tab category">
+                        <p>Спортивные</p>
+                    </div>
+                    <div class="touristic middle_tab category">
+                        <p>Туристические</p>
+                    </div>
+                    <div class="util middle_tab category">
+                        <p>Утилитарные</p>
+                    </div>
+                </div>
+                <div class="bottom_tabs">
+                    <div class="util_wide bottom_tab category">
+                        <p>Утилитарные, широкая гусеница</p>
+                    </div>
+                    <div class="touristic_util bottom_tab category">
+                        <p>Туристические утилитарные</p>
+                    </div>
+                    <div class="light_util bottom_tab category">
+                        <p>Легкие утилитарные</p>
+                    </div>
+                    <div class="crossover bottom_tab category">
+                        <p>Кроссовер</p>
+                    </div>
+                </div>
+            </div>
+            <div class="goods_container">
+
+            </div>
+            <div class="bottom">
+                <ul class="pagination"></ul>
+            </div>
+            <div class="show_more">Показать еще</div>
+        </div>
+        <div class="part part_map">
+            <div class="title">Поиск дилера</div>
+            <div class="map_container">
+                <div class="sidebar">
+                    <div class="top_sidebar">
+                        <p class="city_name">
+                            Москва
+                        </p>
+                    </div>
+                    <div class="bottom_sidebar">
+
+                    </div>
+                </div>
+                <div class="map_main">
+                    <div class="map_item">
+                        <script type="text/javascript" charset="utf-8" async
+                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Afc44ef37744c9b7c204d49a50e4cb1aa3d9d5dee62346c4c1ee5effb4d96f53a&amp;width=100%25&amp;height=700&amp;lang=ru_RU&amp;scroll=false">
+                    </script>
+                    </div>
+                    <div class="map_item">
+                        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac389167b3889c6b0cedd634a19619ea95789e02885319bdf5b367d832a62fd86&amp;width=100%25&amp;height=700&amp;lang=ru_RU&amp;scroll=false"></script>                    </div>
+                    <div class="map_item">
+                        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A94aa148a7ebd71ae2b4402ce5f68ccba5e1805605655014b8f427139d9b34b60&amp;width=100%25&amp;height=700&amp;lang=ru_RU&amp;scroll=false"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
