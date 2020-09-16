@@ -154,18 +154,21 @@ document.addEventListener("DOMContentLoaded", () => {
     let orderPopup = document.querySelector('.order_popup');
     let cities = document.querySelectorAll('.city_name');
     // Считываем куки пользователя
-    function readCookieCity(name) {
-        let matches = document.cookie.match(new RegExp(
-            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-        ));
-        return decodeURIComponent(matches) ? decodeURIComponent(matches[1]) : undefined;
-    }
-    test = readCookieCity('name_city');
-    if (test) {
-        for (let i = 0; i < cities.length; i++) {
-            cities[i].textContent = test;
+    if(document.cookie.name){
+        function readCookieCity(name) {
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return decodeURIComponent(matches) ? decodeURIComponent(matches[1]) : undefined;
+        }
+        test = readCookieCity('name_city');
+        if (test) {
+            for (let i = 0; i < cities.length; i++) {
+                cities[i].textContent = test;
+            }
         }
     }
+
 
     // Конец считывания кук пользователя
 
@@ -501,9 +504,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
+    const sendForm = () => {
+        const postData = (body) => {
+            return fetch('./server.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
+            
+        };
+        postData();
+        console.log(body);
 
-
-
-
+    };
+    
+    document.addEventListener('submit', sendForm);
 
 })
