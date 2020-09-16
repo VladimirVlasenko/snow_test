@@ -153,21 +153,41 @@ document.addEventListener("DOMContentLoaded", () => {
     let orderButton = document.querySelector('.order');
     let orderPopup = document.querySelector('.order_popup');
     let cities = document.querySelectorAll('.city_name');
+
+
+// Ставим куки по умолчанию
+
+
+            
+            function writeCookieDefault(name, val, expires) {
+                let date = new Date;
+                date.setDate(date.getDate() + expires);
+                document.cookie = name + "=" + encodeURIComponent(val) + "; path=/Snow; expires=" + date.toUTCString();
+            }
+    for(let c=0; c<cities.length; c++) {
+
+        if(cities[c].textContent.trim() === "Выберите город") {
+            writeCookieDefault('name_city', "Москва", 30)
+        }
+    }
+
     // Считываем куки пользователя
-    if(document.cookie.name){
         function readCookieCity(name) {
             let matches = document.cookie.match(new RegExp(
                 "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
             ));
             return decodeURIComponent(matches) ? decodeURIComponent(matches[1]) : undefined;
         }
-        test = readCookieCity('name_city');
+        
+        let test = readCookieCity('name_city');
+
         if (test) {
             for (let i = 0; i < cities.length; i++) {
                 cities[i].textContent = test;
             }
         }
-    }
+    
+    
 
 
     // Конец считывания кук пользователя
@@ -183,11 +203,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Получаем города 
     async function getCities() {
         const response = await fetch('http://junior-snowmobile.we-demonstrate2.ru/api/cities');
-        const cities = await response.json();
-        for (let i in cities) {
+        const citiesApi = await response.json();
+        for (let i in citiesApi) {
             windowMiddle.innerHTML += `
             <div class="item">
-                ${cities[i].name}
+                ${citiesApi[i].name}
             </div>
             `
 
@@ -195,19 +215,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
+    
+    
     // События в открытом попапе выбора города
     cityPopup.addEventListener('click', (event) => {
         if (event.target.classList.contains('item')) {
-            let clickedCity = event.target.textContent;
+            let clickedCity = event.target.textContent.trim();
 
-            writeCookie('name_city', clickedCity, 30);
+            
 
             function writeCookie(name, val, expires) {
                 let date = new Date;
                 date.setDate(date.getDate() + expires);
-                document.cookie = name + "=" + encodeURIComponent(val) + "; path=/; expires=" + date.toUTCString();
+                document.cookie = name + "=" + encodeURIComponent(val) + "; path=/Snow; expires=" + date.toUTCString();
             }
+            
+            writeCookie('name_city', clickedCity, 30);
 
 
 
@@ -217,12 +240,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 ));
                 return decodeURIComponent(matches) ? decodeURIComponent(matches[1]) : undefined;
             }
-            test = readCookie('name_city');
+            let test = readCookie('name_city');
 
+
+            for (let i = 0; i < cities.length; i++) {
+                cities[i].textContent = test;
+            }
         }
-        for (let i = 0; i < cities.length; i++) {
-            cities[i].textContent = test;
-        }
+
+
         if (event.target.classList.contains('close') || !event.target.classList.contains("popup_window") ||
             event.target.classList.contains('item')) {
             cityPopup.style.display = 'none';
@@ -388,7 +414,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         const response2 = await fetch('http://junior-snowmobile.we-demonstrate2.ru/api/cities');
-        const cities = await response2.json();
+        const citiesApi = await response2.json();
 
 
 
@@ -410,13 +436,15 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let y = 0; y < maps.length; y++) {
             maps[y].classList.remove('active');
         }
+        let test = readCookieCity('name_city');
+
         for (let i = 0; i < cities.length; i++) {
-            cities[i].textContent = test;
+                cities[i].textContent = test;
         }
 
 
-        for (let i = 0; i < cities.length; i++) {
-            if (chosenCookieCity.trim() === cities[i].name) {
+        for (let i = 0; i < citiesApi.length; i++) {
+            if (chosenCookieCity.trim() === citiesApi[i].name) {
                 for (let x = 0; x < dealers.length; x++) {
 
                     if (+dealers[x].city_id === i + 1) {
@@ -516,7 +544,6 @@ document.addEventListener("DOMContentLoaded", () => {
             
         };
         postData();
-        console.log(body);
 
     };
     
