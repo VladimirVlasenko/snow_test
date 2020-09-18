@@ -68,4 +68,43 @@
     header .menu-items {
         display: none;
     }
+    .part .goods_container .goods_item {
+        width: 33.33%;
+    }
+}
+@media screen and (max-width:900px) {
+    .part .tabs .top_tabs .top_tab p {
+        transform: skewX(0deg);
+        margin: 0 auto;
+        line-height: 30px;
+    }
+    .part .tabs {
+        transform: skewX(0deg);
+        width: auto;
+        height: auto;
+    }
+    .part .tabs .middle_tabs .middle_tab p {
+        transform: skewX(0deg);
+        margin: 0 auto;
+        line-height: 30px;
+        margin-right: 50px;
+    }
+    .part .tabs .bottom_tabs .bottom_tab p {
+        transform: skewX(0deg);
+        margin: 0 auto;
+        line-height: 30px;
+        margin-right: 50px;
+    }
+    .part .tabs .middle_tabs {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .part .tabs .bottom_tabs {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .part .tabs .middle_tabs .middle_tab {
+        width: auto;
+    }
+ 
 }
