@@ -1,0 +1,71 @@
+@media screen and (max-width:1800px) {
+    .part.active.about .image {
+        background: rgba(255, 255, 255, .8) url(./images/about_background.png);
+        background-blend-mode: color;
+        z-index: -2;
+    }
+    .part_map .map_container .map_main {
+        width: 85%;
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+    .part_map .map_container .sidebar {
+        width: 15%;
+    }
+}
+@media screen and (max-width:1600px) {
+    .part_map .map_container {
+        flex-direction: column;
+    }
+    .part_map .map_container .sidebar {
+        flex-direction: row;
+        width: 100%;
+    }
+    .part_map .map_container .sidebar .top_sidebar {
+        width: 20%;
+    }
+    .part_map .map_container .sidebar .bottom_sidebar {
+        flex-direction: row;
+        border: none;
+        justify-content: space-around;
+        box-sizing: border-box;
+    }
+    .part_map .map_container .map_main {
+        width: 100%;
+        padding: 0;
+    }
+    .part_map .map_container .sidebar .bottom_sidebar .bottom_sidebar_item {
+        margin: 0 auto;
+    }
+    .part_map .map_container .sidebar .bottom_sidebar hr {
+        display: none;
+    }
+}
+
+@media screen and (max-width:1400px) {
+    .part .goods_container {
+        width: 100%;
+    }
+    .part .goods_container .goods_item .image {
+        position: relative;
+        width: 100%;
+    }
+    .part .goods_container .goods_item .image img {
+        width: 100%;
+        height: auto;
+    }
+}
+@media screen and (max-width:1200px) {
+
+    header .city-order {
+        margin-right: 4%;
+    }
+}
+@media screen and (max-width:1000px) {
+    .container_burger {
+        display: flex;
+    }
+    header .menu-items {
+        display: none;
+    }
+}

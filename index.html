@@ -6,10 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Снегоходы</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./media.css">
     <link rel="icon" href="./images/favicon.ico">
 </head>
 
 <body>
+    <!-- Начало скрытого меню -->
+    <div class="hidden_menu">
+        <div class="close_hm"></div>
+        <div class="menu-items">
+            <a href="#" class="about headerRef_hidden">О компании
+                <div class="before"></div>
+            </a>
+            <a href="#" class="catalog headerRef_hidden">Каталог
+                <div class="before"></div>
+            </a>
+            <a href="#" class="diler_search headerRef_hidden">Поиск дилера
+                <div class="before"></div>
+            </a>
+        </div>
+    </div>
+    <!-- Конец скрытого меню -->
     <!-- Попап выбора города -->
     <div class="city_popup">
         <div class="popup_window">
@@ -67,6 +84,21 @@
         </div>
     </div>
     <!-- Конец попапа заказа -->
+    <!-- Бургер-меню -->
+    <div class="container_burger">
+        <input type="checkbox" id="checkbox4" class="checkbox4 visuallyHidden">
+        <label for="checkbox4">
+            <div class="hamburger hamburger4">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+                <span class="bar bar4"></span>
+                <span class="bar bar5"></span>
+            </div>
+        </label>
+
+    </div>
+    <!-- Конец бургер-меню --> 
     <header>
         <div class="logo"></div>
         <div class="menu-items">
@@ -90,7 +122,7 @@
                 <div class="background"></div>
             </div>
         </div>
-
+                
     </header>
     <!-- Наполнение сайта -->
     <div class="main">
@@ -119,7 +151,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="image"></div>
+                <div class="image">
+                    <div class="additional_layer"></div>
+                </div>
             </div>
         </div>
 
@@ -192,9 +226,7 @@
                 </div>
                 <div class="map_main">
                     <div class="map_item">
-                        <script type="text/javascript" charset="utf-8" async
-                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Afc44ef37744c9b7c204d49a50e4cb1aa3d9d5dee62346c4c1ee5effb4d96f53a&amp;width=100%25&amp;height=700&amp;lang=ru_RU&amp;scroll=false">
-                    </script>
+                        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Afc44ef37744c9b7c204d49a50e4cb1aa3d9d5dee62346c4c1ee5effb4d96f53a&amp;width=100%25&amp;height=700&amp;lang=ru_RU&amp;scroll=false"></script>
                     </div>
                     <div class="map_item">
                         <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac389167b3889c6b0cedd634a19619ea95789e02885319bdf5b367d832a62fd86&amp;width=100%25&amp;height=700&amp;lang=ru_RU&amp;scroll=false"></script>                    </div>

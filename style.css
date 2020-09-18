@@ -15,6 +15,53 @@ a {
     text-decoration: none;
     border: none;
 }
+/* Начало скрытого меню */
+.hidden_menu {
+    display: none;
+    transform: translateX(100%);
+    position: fixed;
+    background: rgb(0,0,0);
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    
+}
+.hidden_menu.active {
+    display: flex;
+    transform: translateX(0%);
+}
+/* .hidden_menu .close_hm {
+    width: 30px;
+    height: 30px;
+    background: white url("./images/close_hm.png") no-repeat center/cover;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    z-index: 5;
+} */
+.hidden_menu .close_hm:hover {
+    transform: scale(1.2);
+}
+.hidden_menu .menu-items {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    align-items: center;
+    justify-content: flex-start;
+}
+.hidden_menu .menu-items a {
+    color: white;
+    margin-top: 50px;
+}
+
+/* Конец скрытого меню */
 /* Начало стилизации попап с выбором города */
 .city_popup {
     width: 100%;
@@ -291,7 +338,124 @@ header .city-order .order .background {
     transform: skewX(-20deg);
     box-shadow: 2px 2px rgb(255, 210, 0);
 }
+/* Конец стилизации хэдэра */
+/* Начало стилизации бургер-меню */
+/* HAMBURGER 4 */
+.visuallyHidden {
+    position: absolute; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height: 1px; width: 1px; 
+    margin: -1px; padding: 0; border: 0; 
+}
 
+h1 {
+    text-align: center;
+}
+
+.container_burger {
+    margin: 0;
+    display: none;
+    justify-content: space-between;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 30px;
+    right: 30px;
+    z-index: 4;
+}
+
+.container_burger .hamburger {
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.container_burger .hamburger .bar {
+    padding: 0;
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    display: block;
+    border-radius: 4px;
+    transition: all 0.4s ease-in-out;
+    position: absolute; 
+}
+
+.container_burger .bar1 {
+    top: 0;
+}
+
+.container_burger .bar2,
+.container_burger .bar3 {
+    top: 13.5px;
+}
+
+.container_burger .bar3 {
+    right: 0;
+}
+
+.container_burger .bar4 {
+    bottom: 0;
+}
+.container_burger .hamburger2 .bar2,
+.container_burger .hamburger3 .bar3,
+.container_burger .hamburger4 .bar4 {
+    top: 13.5px;
+}
+
+.container_burger .hamburger4 .bar5 {
+    bottom: 0px;
+}
+
+.container_burger .hamburger4 .bar {
+    transition: all 0.4s ease-in-out, transform 0.4s ease-in-out 0.4s;
+}
+
+.container_burger .hamburger4 .bar2 {
+    width: 1px;
+    transform: rotate(90deg);
+    left: 13.5px;
+}
+
+.container_burger .hamburger4 .bar3 {
+    width: 1px;
+    left: 13.5px;
+    
+}
+.container_burger label[for="checkbox4"] {
+    height: 30px;
+}
+
+.container_burger .checkbox4:checked + label > .hamburger4 > .bar1{
+    top: 13.5px;
+    background-color: transparent;
+}
+
+.container_burger .checkbox4:checked + label > .hamburger4 > .bar2{
+    left: 0px;
+    width: 30px;
+    transform: rotate(45deg);
+}
+
+.container_burger .checkbox4:checked + label > .hamburger4 > .bar3{
+    left: 0;
+    width: 30px;
+    transform: rotate(-45deg);
+}
+
+.container_burger .checkbox4:checked + label > .hamburger4 > .bar4{
+    background-color: transparent;
+}
+
+.container_burger .checkbox4:checked + label > .hamburger4 > .bar5{
+    bottom: 13.5px;
+    background-color: transparent; 
+}
+
+/* Конец стилизации бургер-меню */
 
 .part {
     position: relative;
@@ -349,6 +513,7 @@ header .city-order .order .background {
     height: 50px;
     position: relative;
     white-space: nowrap;
+    z-index: 2;
 }
 .part.active.about .about_body .text .buttons .order_button:hover {
     cursor: pointer;
@@ -374,6 +539,7 @@ header .city-order .order .background {
     height: 50px;
     position: relative;
     white-space: nowrap;
+    z-index: 2;
 }
 .part.active.about .about_body .text .buttons .find_dealer_button:hover {
     cursor: pointer;
@@ -549,6 +715,7 @@ color: rgb(255, 210, 0);
     box-sizing: border-box;
     padding-left: 20px;
     padding-right: 20px;
+    position: relative;
 
 }
 .part .goods_container .goods_item .name {

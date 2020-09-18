@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     const headerRef = document.querySelectorAll(".headerRef");
+    const headerRefHidden = document.querySelectorAll(".headerRef_hidden");
     const header = document.querySelector("header");
     const parts = document.querySelectorAll('.part');
     const a = document.querySelector('a');
     let goodsContainer = document.querySelector('.goods_container');
+    let hiddenMenu = document.querySelector('.hidden_menu');
 
     a.addEventListener('click', (event) => {
         event.preventDefault();
@@ -89,6 +91,101 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     })
+    // Появление скрытого меню 
+    document.addEventListener('mousedown', (event)=>{
+        if(event.target.closest('.container_burger')&& !hiddenMenu.classList.contains('active')) {
+            hiddenMenu.classList.add('active');
+            console.log("добавлен активный класс")
+        } else if(event.target.closest('.container_burger')&& hiddenMenu.classList.contains('active')) {
+            hiddenMenu.classList.remove('active');
+            console.log("удален активный класс")
+        }
+        
+    })
+    // Выбор раздела сайта в скрытом меню 
+    document.addEventListener('click', (event) => {
+
+        if (event.target.classList.contains('headerRef_hidden')) {
+            event.preventDefault();
+            let checkbox = document.querySelector('.checkbox4');
+            checkbox.checked = false;
+            for (item of headerRefHidden) {
+                item.classList.remove('active');
+            }
+            for (item of parts) {
+                item.classList.remove('active');
+            }
+
+            for (let i = 0; i < headerRefHidden.length; i++) {
+                if (headerRefHidden[i] === event.target) {
+                    headerRefHidden[i].classList.add('active');
+                    parts[i].classList.add('active');
+                    if (headerRefHidden[i] = headerRefHidden[2]) {
+                        getDealers();
+                    }
+                }
+            }
+            hiddenMenu.classList.remove('active');
+
+        }
+
+        if (event.target.closest('.find_dealer_button')) {
+            for (item of headerRefHidden) {
+                item.classList.remove('active');
+            }
+            for (item of parts) {
+                item.classList.remove('active');
+            }
+            headerRefHidden[2].classList.add('active');
+            parts[2].classList.add('active');
+            getDealers();
+        }
+        if (event.target.classList.contains('catalog')) {
+
+            // Получаем товары 
+            let goodsContainer = document.querySelector('.goods_container');
+            async function getGoods() {
+                const response = await fetch(`http://junior-snowmobile.we-demonstrate2.ru/api/products`);
+                const goods = await response.json();
+                goodsContainer.innerHTML = "";
+                
+                for (let i = 0; i < goods.data.length; i++) {
+                    goodsContainer.innerHTML += `
+                        <div class="goods_item">
+                            <div class="name">${goods.data[i].name}</div>
+                            <div class="image"> <img src=${goods.data[i].picture}></div>
+                            <div class="price">${goods.data[i].price.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')}  ₽</div>
+                        </div>
+                    `
+                }
+                let pagination = document.querySelector('.pagination');
+                pagination.innerHTML = "";
+                let pageNumber = document.querySelectorAll('.page_num');
+
+                if (!(pageNumber.length === goods.last_page)) {
+                    pagination.innerHTML = "";
+                    for (let i = 0; i < +goods.last_page; i++) {
+                            pagination.innerHTML += `
+                            <li class="page_number"><a class="page_num">${i+1}</a></li>
+                            `
+                    }
+                }
+                let pagesLoaded = document.querySelectorAll('.page_num');
+                for(let i=0; i<pagesLoaded.length; i++) {
+                    if(!pagesLoaded[i].classList.contains('active')) {
+                        pagesLoaded[0].classList.add('active');
+                    }
+                }
+
+
+            }
+            getGoods();
+
+        }
+        
+        
+    })
+    // Конец выбора раздела сайта в скрытом меню
     // Пагинация по страницам
     document.addEventListener('click', (event) => {
         let allPageNumbers = document.querySelectorAll('.page_num');
