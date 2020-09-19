@@ -73,6 +73,9 @@
     }
 }
 @media screen and (max-width:900px) {
+    header .city-order {
+        margin-right: 120px;
+    }
     .part .tabs .top_tabs .top_tab p {
         transform: skewX(0deg);
         margin: 0 auto;
@@ -107,4 +110,88 @@
         width: auto;
     }
  
+}
+@media screen and (max-width: 650px) {
+    .part .goods_container .goods_item {
+        width: 50%;
+    }
+    header {
+        justify-content: flex-start;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    header .logo {
+        height: 40px;
+        width: 50px;
+        background: url("./images/logo.png") no-repeat center/cover;
+        margin-right: 20px;
+    }
+    header .city-order {
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+        align-items: flex-start;
+    }
+    header .city-order .city p.city_name {
+        margin: 0 auto;
+    }
+    header .city-order .order p {
+        margin: 0 auto;
+    }
+    header .city-order .order .background {
+        width: 120%;
+
+        height: 140%;
+
+        left: -10%;
+        top: -20%;
+    }
+    header .city-order {
+        margin-right: 0px;
+    }
+    .part.active.about .about_body .text .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .part.active.about .about_body .text .buttons .order_button {
+        margin-bottom: 30px;
+        width: 250px;
+    }
+    .part.active.about .about_body .text .buttons .find_dealer_button {
+        width: 250px;
+    }
+    .part.active.about .about_body {
+        height: auto;
+        margin: 0 auto;
+    }
+    .part.active.about .image {
+        display: none;
+    }
+    .part_map .map_container .sidebar {
+        flex-direction: column;
+    }
+    .part_map .map_container .sidebar .bottom_sidebar {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+    .part_map .map_container .sidebar .bottom_sidebar hr {
+        display: block;
+    }
+    
+}
+@media screen and (max-width: 450px) {
+    .part .goods_container .goods_item {
+        width: 100%;
+    }   
+    .part .title {
+        margin: 20px;
+        font-size: 36px;
+        height: auto;
+    }
+    .part_map .map_container .sidebar .top_sidebar {
+        width: 100%;
+    }
 }
