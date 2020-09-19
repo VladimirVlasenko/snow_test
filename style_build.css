@@ -1204,12 +1204,16 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
         width: 100%;
         height: auto;
     }
+    .part_map .map_container .sidebar .top_sidebar {
+        width: 270px;
+    }
 }
 @media screen and (max-width:1200px) {
 
     header .city-order {
         margin-right: 4%;
     }
+
 }
 @media screen and (max-width:1000px) {
     .container_burger {
@@ -1276,6 +1280,12 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 @media screen and (max-width: 650px) {
     .part .goods_container .goods_item {
         width: 50%;
+    }
+    .city_popup .popup_window {
+        width: 100%;
+    }
+    .order_popup .popup_window {
+        width: 100%;
     }
     header {
         -webkit-box-pack: start;
